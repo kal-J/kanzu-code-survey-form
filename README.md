@@ -1,8 +1,45 @@
+# Responsive Web Design
+In this tutorial, we shall be looking at what responsive web design is and transforming a sample site to make it more responsive using CSS media queries. This tutorial is aimed at giving you just the basics that you need to get started using media queries and hence readers are adviced to read some additional resources incase they require a dive deep into this topic. Links to some additional resources are linked at the end of this tutorial.
+
+Responsive web design (RWD) or responsive design is an approach to web design that aims to make web pages render well on a variety of devices and window or screen sizes. It involves a set of practices that allows web pages to alter their layout and appearance to suit different screen widths and resolutions.
+
+## Techniques to achieve responsive designs
+1. The viewport meta tag.
+2. Modern layout technologies (Flexbox & CSS Grids)
+3. Media Queries
+
+The viewport meta tag is used to control viewport's size and scale.
+```
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+ If you want an in-depth look into what it is, here is a [resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag) , knock yourself out.
+
+Modern layout technologies such as flexbox & CSS grids are used too when designing responsive sites.
+
+Media query is a CSS technique introduced in CSS3. It uses the @media rule to include a block of CSS properties only if a certain condition is true.
+```
+@media media type and (condition: breakpoint) {
+    //css rules
+}
+```
+<img src="./images/media-query-syntax.png">
+<img height="200%" src="./images/media-query-syntax_2.png">
+
+<br>
+
+Below is a mobile vs desktop view of our sample site before applying our media query.
+<p>Mobile</p>
+<img src="./images/before_mobile.png">
+<p>Desktop</p>
+<img src="./images/before_desktop.png">
+
+
+`index.html`
+```
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <title>CodeImpact-SurveyForm</title>
     </head>
@@ -95,3 +132,99 @@
         
     </body>
 </html>
+```
+`style.css`
+```
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Dosis', sans-serif;
+}
+body {
+	background-color: #eee;
+	font-weight: 400;
+	font-size: 1.5rem;	
+}
+
+header {
+	text-align: center;
+	padding-top: 3rem;
+	margin-bottom: 2rem;
+	line-height: 2;
+	display: flex;
+	justify-content: center;
+}
+
+header img{
+	width:10rem;
+	height: 10rem;
+	border-radius: 50%;
+}
+
+#survey-form {
+	background-color: #1b1b32;
+	color: white;
+	width: 80%;
+    margin: auto;
+    padding-bottom: 3rem;
+}
+
+.form-group {
+	width: 80%;
+	margin: auto;
+	padding-top: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	outline: none;
+}
+
+#name,
+#email,
+#number,
+#dropdown {
+	margin-top: 0.8rem;
+	border: none;
+	padding: 0.7rem;
+	font-weight: 500;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+}
+
+#radio-buttons > label, #checkboxes > label{
+    padding-top:0.8rem;
+}
+
+#comment{
+    margin-top:0.8rem;
+    margin-bottom:0.8rem;
+    padding:0.7rem;
+    height:5rem;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+#submit{
+    padding:0.7rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #37af65;
+    border-radius: 0.3rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+```
+Comparing the mobile and the desktop version of the site, you can see how our site appears well on the desktop but is totally distorted and un-usuable on the mobile version. To fix that, lets add the code below to the bottom of our `style.css`
+
+`style.css`
+```
+
+```
