@@ -1,6 +1,8 @@
 # Responsive Web Design
 In this tutorial, we shall be looking at what responsive web design is and transforming a sample site to make it more responsive using CSS media queries. This tutorial is aimed at giving you just the basics that you need to get started using media queries and hence readers are adviced to read some additional resources incase they require a dive deep into this topic. Links to some additional resources are linked at the end of this tutorial.
 
+You can find the code to the sample project [here](https://github.com/kal-J/kanzu-code-survey-form)
+
 Responsive web design (RWD) or responsive design is an approach to web design that aims to make web pages render well on a variety of devices and window or screen sizes. It involves a set of practices that allows web pages to alter their layout and appearance to suit different screen widths and resolutions.
 
 ## Techniques to achieve responsive designs
@@ -14,7 +16,7 @@ The viewport meta tag is used to control viewport's size and scale.
 ```
  If you want an in-depth look into what it is, here is a [resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag) , knock yourself out.
 
-Modern layout technologies such as flexbox & CSS grids are used too when designing responsive sites.
+Modern layout technologies such as flexbox & CSS grids are also used when designing responsive sites.
 
 Media query is a CSS technique introduced in CSS3. It uses the @media rule to include a block of CSS properties only if a certain condition is true.
 ```
@@ -28,9 +30,11 @@ Media query is a CSS technique introduced in CSS3. It uses the @media rule to in
 <br>
 
 Below is a mobile vs desktop view of our sample site before applying our media query.
-<p>Mobile</p>
+
+`Mobile`
 <img src="./images/before_mobile.png">
-<p>Desktop</p>
+
+`Desktop`
 <img src="./images/before_desktop.png">
 
 
@@ -226,5 +230,55 @@ Comparing the mobile and the desktop version of the site, you can see how our si
 
 `style.css`
 ```
+@media (max-width: 425px) {
+  /*Small smartphones */
 
+  body {
+    background-color: #eee;
+    font-weight: 200;
+    font-size: 1rem;
+  }
+
+  header {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    flex-direction: column;
+  }
+
+  header img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin: auto;
+  }
+
+  header div {
+    padding: 0 0.7rem;
+  }
+
+  #survey-form {
+    padding-bottom: 5rem;
+  }
+}
 ```
+Here is a breakdown of what we just did, we added a media query rule which evalutes to true each time the width of the screen is atleast `425px` . Once that is the case, the css inside the `{}` of the media query is applied to the dom.
+```
+@media (max-width: 425px) {
+    // css rules applied
+}
+```
+If the screen width is above `425px` , the css rules inside the `{}` of the media query are not applied to the dom.
+
+With that, each time the users access our site from a mobile device whose width is `425px` and below, they get to interact with the version of the design customizable for such small screens whereas any users accessing from screens above `425px` get to interact with a design suited for larger screens.
+Below is how our mobile version would look after adding the media query.
+
+`Responsive mobile version`
+
+<img src="./images/after_mobile.png">
+
+That's much bettter right?.. right?
+
+Thats a quick walk through on how you can go about putting together a responsive site.
+
+[Here](https://css-tricks.com/a-complete-guide-to-css-media-queries/) is an additional resource you can refer to regarding css media queries.
