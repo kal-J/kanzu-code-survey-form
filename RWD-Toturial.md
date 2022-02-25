@@ -32,9 +32,11 @@ Media query is a CSS technique introduced in CSS3. It uses the @media rule to in
 Below is a mobile vs desktop view of our sample site before applying our media query.
 
 `Mobile`
+
 <img src="./images/before_mobile.png">
 
 `Desktop`
+
 <img src="./images/before_desktop.png">
 
 
